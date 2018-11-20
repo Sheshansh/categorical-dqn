@@ -23,6 +23,8 @@ def parse_cmd_args():
     p.add_argument('-r', '--results', type=str, default="./experiments",
                    metavar='path::str',
                    help='Path of the results folder.')
+    p.add_argument('--exp-name', type=str, default="basic_experiment",
+                    help="Name of the current running Experiment")
     args = p.parse_args()
     return args
 
@@ -40,6 +42,7 @@ def inject_args(n, args):
     # inject some of the cmdl args into the config namespace
     setattr(n, "experiment_id", args.id)
     setattr(n, "results_path", args.results)
+    setattr(n, "exp_name", args.exp_name)
     return n
 
 
