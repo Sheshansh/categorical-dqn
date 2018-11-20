@@ -11,7 +11,6 @@ from utils import DoneAfterLostLife
 
 def env_factory(cmdl, mode):
     # Undo the default logger and configure a new one.
-    gym.undo_logger_setup()
     logger = logging.getLogger()
     logger.setLevel(logging.WARNING)
 
