@@ -13,7 +13,7 @@ list of dependencies.
 
 Install the game of Catch:
 ```
-git clone https://github.com/floringogianu/gym_fast_envs
+pip install -r requirements.txt
 cd gym_fast_envs
 
 pip install -r requirements.txt
