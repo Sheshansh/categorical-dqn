@@ -11,7 +11,7 @@ agent_type: "categorical"
 # experiment settings
 seed: 99
 cuda: yes
-display_plots: no # uses vizdom for plotting
+display_plots: yes # uses vizdom for plotting
 
 # training vars
 training_steps: 1000000

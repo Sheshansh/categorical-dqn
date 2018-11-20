@@ -154,7 +154,7 @@ class EvaluationMonitor(Wrapper):
         self.cmdl = cmdl
 
         if self.cmdl.display_plots:
-            import Visdom
+            from visdom import Visdom
             self.vis = Visdom()
             self.plot = self.vis.line(
                 Y=np.array([0]), X=np.array([0]),

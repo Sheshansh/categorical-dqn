@@ -12,7 +12,7 @@ rescale_dims: 84
 # experiment settings
 seed: 23
 cuda: yes
-display_plots: no # uses vizdom for plotting
+display_plots: yes # uses vizdom for plotting
 
 # training settings
 training_steps: 30000
