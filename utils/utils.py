@@ -17,6 +17,7 @@ def env_factory(cmdl, mode):
     print(clr("[Main] Constructing %s environment." % mode, attrs=['bold']))
     env = gym.make(cmdl.env_name)
 
+
     if hasattr(cmdl, 'rescale_dims'):
         state_dims = (cmdl.rescale_dims, cmdl.rescale_dims)
     else:

@@ -14,8 +14,9 @@ def train_agent(cmdl):
 
     name = cmdl.agent_type
     env_space = (env.action_space, env.observation_space)
-    agent = get_agent(name)(env_space, cmdl)
     eval_env_space = (env.action_space, env.observation_space)
+
+    agent = get_agent(name)(env_space, cmdl)
     eval_agent = get_agent("evaluation")(eval_env_space, cmdl)
 
     agent.display_setup(env, cmdl)
@@ -24,13 +25,11 @@ def train_agent(cmdl):
     fps_time = time.perf_counter()
 
     s, r, done = env.reset(), 0, False
-
     for step_cnt in range(cmdl.training_steps):
         a = agent.evaluate_policy(s)
         _s, _a = s.clone(), a
         s, r, done, _ = env.step(a)
         agent.improve_policy(_s, _a, r, s, done)
-
         step_cnt += 1
         agent.gather_stats(r, done)
 

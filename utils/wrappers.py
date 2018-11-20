@@ -30,8 +30,10 @@ class PreprocessFrames(ObservationWrapper):
         self.env_type = env_type
         self.state_dims = state_dims
         self.hist_len = hist_len
+
         self.env_wh = self.env.observation_space.shape[0:2]
         self.env_ch = self.env.observation_space.shape[2]
+
         self.wxh = self.env_wh[0] * self.env_wh[1]
 
         # need to find a better way
@@ -39,6 +41,7 @@ class PreprocessFrames(ObservationWrapper):
             self._preprocess = self._atari_preprocess
         elif self.env_type == "catch":
             self._preprocess = self._catch_preprocess
+
         print("[Preprocess Wrapper] for %s with state history of %d frames."
               % (self.env_type, hist_len))
 
