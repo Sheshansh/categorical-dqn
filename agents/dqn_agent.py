@@ -35,11 +35,10 @@ class DQNAgent(BaseAgent):
     def evaluate_policy(self, state):
         self.epsilon = next(self.exploration)
         if self.epsilon < uniform():
-            qval, action = self.policy_evaluation.get_action(state)
-            self.max_q = max(qval, self.max_q)
+            _, action = self.policy_evaluation.get_action(state)
             return action
         else:
-            return self.actions.sample()
+            return self.policy_evaluation.explore_action(state)
 
     def improve_policy(self, _s, _a, r, s, done):
         h = self.cmdl.hist_len - 1
